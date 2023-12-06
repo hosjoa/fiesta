@@ -24,7 +24,7 @@ export default function Home() {
           {/* Cookie */}
           {cookies.mhjoa ? <div>
             {
-              cookies.mhjoa.platform === 'twitch'? <iframe src={`https://player.twitch.tv/?channel=${cookies.mhjoa.channel}&&html5&parent=localhost`} frameBorder="0" allowFullScreen={true} scrolling="no" height="100%" width="100%" /> : <iframe src={`https://player.twitch.tv/?channel=${cookies.mhjoa.channel}&&html5&parent=localhost`} frameBorder="0" allowFullScreen={true} scrolling="no" height="100%" width="100%" />
+              cookies.mhjoa.platform === 'twitch'? <iframe src={`https://player.twitch.tv/?channel=${cookies.mhjoa.channel}&&html5&parent=vercel.app`} frameBorder="0" allowFullScreen={true} scrolling="no" height="100%" width="100%" /> : <iframe src={`https://player.twitch.tv/?channel=${cookies.mhjoa.channel}&&html5&parent=localhost`} frameBorder="0" allowFullScreen={true} scrolling="no" height="100%" width="100%" />
             }
             <button onClick={() => {
               removeCookie('mhjoa')
