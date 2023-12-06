@@ -1,3 +1,4 @@
+"use client";
 import ReactTwitchEmbedVideo from "react-twitch-embed-video";
 
 export default function Twitch({ channel} : {channel: string}) {
