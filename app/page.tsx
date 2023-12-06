@@ -1,5 +1,6 @@
 "use client";
 import Chat from "@/app/Components/Chat";
+import Twitch from "@/app/Components/Twitch";
 import { useCookies } from "react-cookie";
 import * as React from "react";
 
@@ -20,16 +21,16 @@ export default function Home() {
     <main className="h-full">
       {/* Video  */}
       <div className="flex w-full h-full">
-        <div className="grow">
+        <div className="grow relative">
           {/* Cookie */}
           {cookies.mhjoa ? <div>
             {
-              cookies.mhjoa.platform === 'twitch'? <iframe src={`https://player.twitch.tv/?channel=${cookies.mhjoa.channel}&&html5&parent=vercel.app`} frameBorder="0" allowFullScreen={true} scrolling="no" height="100%" width="100%" /> : <iframe src={`https://player.twitch.tv/?channel=${cookies.mhjoa.channel}&&html5&parent=localhost`} frameBorder="0" allowFullScreen={true} scrolling="no" height="100%" width="100%" />
+              cookies.mhjoa.platform === 'twitch'? <Twitch channel={cookies.mhjoa.channel} /> : <iframe src={`https://player.twitch.tv/?channel=${cookies.mhjoa.channel}&&html5&parent=vercel.app`} frameBorder="0" allowFullScreen={true} scrolling="no" height="100%" width="100%" />
             }
             <button onClick={() => {
               removeCookie('mhjoa')
             }}>Remove Cookie</button>
-          </div> : <>
+          </div> : <div>
             <select>
               <option value="kick">KICK</option>
               <option value="twitch">TWITCH</option>
@@ -40,9 +41,7 @@ export default function Home() {
                   setSelectedChannel(event.target.value)}
             } />
             <button onClick={handleSubmit}>Submit</button>
-          </>}
-
-
+          </div>}
         </div>
         <div className="bg-[#ff0000]"><Chat /></div>
       </div>
